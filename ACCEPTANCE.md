@@ -55,7 +55,7 @@ are not covered by this receipt.
 ## Dependency identity
 
 The plugin pins the public SDK through the canonical remote repository at
-`549ef96c8ab5dae7f5791d03a05a9726087de286`. A temporary local Go workspace was
+`e2ba3304f57d3687ef193b9511c3eb2f98afd671`. A temporary local Go workspace was
 used during initial development. Final independent verification passed with `GOWORK=off`, including live
 upload/download and real-process E2E. No local filesystem replacement is shipped.
 
@@ -68,11 +68,25 @@ URL as result history. Sync and telemetry were disabled; clipboard application
 was not requested.
 
 The host installer required a fix for GitHub's initial global PAX metadata entry.
-Minimum installation host: `80a0de0fd19749c8da2b0a679d7d0e5c5ffd414d`.
-The plugin's compiled SDK dependency remains pinned to `549ef96c8ab5dae7f5791d03a05a9726087de286`;
+Initial installation acceptance host: `80a0de0fd19749c8da2b0a679d7d0e5c5ffd414d`.
+That initial plugin build used SDK `549ef96c8ab5dae7f5791d03a05a9726087de286`;
 the installer fix does not change that SDK interface.
 See the [host execution receipt](https://github.com/UniClipboard/UniClipboard/blob/80a0de0fd19749c8da2b0a679d7d0e5c5ffd414d/docs/exec/0027-wenshushu-share-action.md).
 
 The committed plugin source was independently rechecked with `GOWORK=off` in
 `.cache/acceptance/run.o6IskD/`. The live three-payload receipt remains in
 `.cache/acceptance/run.lMd5MK/`. First failure artifacts were retained.
+
+## Reviewed SDK adoption
+
+The current SDK and minimum host revision is
+`e2ba3304f57d3687ef193b9511c3eb2f98afd671`. It includes approved per-part
+`action.close_part` release, connection-wide source-descriptor registration,
+source-failure latching and stable timeout mapping. No local override is used.
+The downloaded SDK's five critical source files were compared byte for byte
+with that host revision before adoption.
+
+`GOWORK=off sh scripts/verify.sh` passed after the dependency update and emitted
+`.cache/acceptance/run.t51uq2/`. This follow-up ran deterministic provider and
+real-plugin-process E2E; it did not upload additional content to the live provider.
+The earlier live-provider receipt remains the evidence for provider compatibility.

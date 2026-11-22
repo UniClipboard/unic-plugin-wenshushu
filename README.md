@@ -21,7 +21,7 @@ Live acceptance observed approximately 24 hours; provider quotas and policy appl
 
 Use a UniClipboard host that includes the Action source-reader and deadline
 extensions from host commit
-[`80a0de0fd19749c8da2b0a679d7d0e5c5ffd414d`](https://github.com/UniClipboard/UniClipboard/commit/80a0de0fd19749c8da2b0a679d7d0e5c5ffd414d).
+[`e2ba3304f57d3687ef193b9511c3eb2f98afd671`](https://github.com/UniClipboard/UniClipboard/commit/e2ba3304f57d3687ef193b9511c3eb2f98afd671).
 These changes are on `feat/wenshushu-action-source`; they are not merged into
 the host default branch. Older hosts cannot run this plugin.
 
