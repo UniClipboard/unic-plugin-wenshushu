@@ -12,7 +12,7 @@ import (
 )
 
 const ID = "unic.wenshushu"
-const Version = "0.1.0"
+const Version = "0.1.1"
 
 // Plugin owns provider requests. The host owns content and result history.
 type Plugin struct{ client *wenshushu.Client }
@@ -25,7 +25,7 @@ func New(client *wenshushu.Client) *Plugin {
 	return &Plugin{client: client}
 }
 func (*Plugin) Spec() plugin.Spec {
-	return plugin.Spec{ID: ID, Version: Version, APIVersion: 1, Capabilities: []string{plugin.CapAction}, Actions: []plugin.ActionSpec{{ID: "share", Title: "通过文叔叔临时分享", Accepts: []string{"text", "image", "files"}, TimeoutMS: 300000}}}
+	return plugin.Spec{ID: ID, Version: Version, APIVersion: 1, Capabilities: []string{plugin.CapAction}, Actions: []plugin.ActionSpec{{ID: "share", Title: "通过文叔叔临时分享", Accepts: []string{"text", "image", "files"}, Placements: []string{plugin.ActionPlacementHistoryItemMenu, plugin.ActionPlacementHistoryToolbar, plugin.ActionPlacementQuickPanel}, PostActions: []string{plugin.ActionPostCopy, plugin.ActionPostPresent}, TimeoutMS: 300000}}}
 }
 func (*Plugin) Init(_ context.Context, _ plugin.Host, config plugin.Config) error {
 	if len(config) != 0 {

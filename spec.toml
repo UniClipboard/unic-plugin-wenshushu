@@ -1,6 +1,6 @@
 manifest_version = 1
 id = "unic.wenshushu"
-version = "0.1.0"
+version = "0.1.1"
 api_version = 1
 kind = "go"
 module = "github.com/UniClipboard/unic-plugin-wenshushu"
@@ -11,52 +11,54 @@ capabilities = ["action"]
 id = "share"
 title = "通过文叔叔临时分享"
 accepts = ["text", "image", "files"]
+placements = ["history.item_menu", "history.toolbar", "quick_panel"]
+post_actions = ["copy", "present"]
 timeout_ms = 300000
 
 [[artifacts]]
 goos = "darwin"
 goarch = "arm64"
-release = "v0.1.0"
+release = "v0.1.1"
 asset = "unic-plugin-wenshushu_darwin_arm64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "54ee0af550050c83c2f327ad4b723efd522c892793fa0bc91eab4fb5e5b5a352"
+sha256 = "c2dfccdd8286b5f7f1f0095048e7ad30983178a41a5bf5cd204265b449285da9"
 
 [[artifacts]]
 goos = "darwin"
 goarch = "amd64"
-release = "v0.1.0"
+release = "v0.1.1"
 asset = "unic-plugin-wenshushu_darwin_amd64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "baef100dcdac7fe88eb2e288d3126d7bec4183d45ff4939d1195389357b3f056"
+sha256 = "8d02fc5057edc5f40e16b0d0a472443f153f913a4bcb4e2d346dae56881081fb"
 
 [[artifacts]]
 goos = "linux"
 goarch = "amd64"
-release = "v0.1.0"
+release = "v0.1.1"
 asset = "unic-plugin-wenshushu_linux_amd64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "f59a482d597ff829d710294d72efa0d2fad5fa6730ee008100ba57b65f4760d1"
+sha256 = "35f67888a7c0e45c1e8763e1ba6b39ffa497fc9be07ea509c356cc5de8c4f0b4"
 
 [[artifacts]]
 goos = "linux"
 goarch = "arm64"
-release = "v0.1.0"
+release = "v0.1.1"
 asset = "unic-plugin-wenshushu_linux_arm64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "64468c365d1187b9dce46df4dded2b6973b498293cc5f526bfba7d9142fddf0b"
+sha256 = "54ca2c18f48435c643bf151d18bc571d72621e46e0988010d515970a9ceb66b9"
 
 [[artifacts]]
 goos = "windows"
 goarch = "amd64"
-release = "v0.1.0"
+release = "v0.1.1"
 asset = "unic-plugin-wenshushu_windows_amd64.tar.gz"
 executable = "unic-plugin-wenshushu.exe"
-sha256 = "829de2d6cdf1051a9e0a0a8efa9fa060537fb71cc48f9426d29fe7a7416aeec6"
+sha256 = "5ac72136d23729eca2595a50ed281a17bb3b35fbe912676a51f15a0357186ebf"
 
 [[artifacts]]
 goos = "windows"
 goarch = "arm64"
-release = "v0.1.0"
+release = "v0.1.1"
 asset = "unic-plugin-wenshushu_windows_arm64.tar.gz"
 executable = "unic-plugin-wenshushu.exe"
-sha256 = "9def796bae30238fa382cbd3063894d55f5ef51b01a483f3d0c7aaf8bbbd149e"
+sha256 = "109e45372098aac93bd1e1ccdde08024c7a6468618c5fb3c722290c70a87fa51"
