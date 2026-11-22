@@ -1,0 +1,9 @@
+/bin/
+/dist/
+/.cache/
+/.planning/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
