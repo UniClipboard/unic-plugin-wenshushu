@@ -9,6 +9,10 @@
 - Live anonymous provider: text, valid PNG and a 2,400,000-byte binary shared in one batch.
 - Independent anonymous recipient: all three files downloaded and compared byte for byte.
 - Provider expiry: approximately 86,396 seconds remaining after completion.
+- Immutable GitHub source installation through the production CLI: passed.
+- Installed production plugin through actual CLI/service: synthetic text upload and result history passed.
+- Linux amd64 and Windows amd64 cross-builds: passed; runtime not run.
+- GitHub CI: [run 44970382377 passed](https://github.com/UniClipboard/unic-plugin-wenshushu/actions/runs/44970382377).
 - Native GUI acceptance: not run.
 - Public release artifacts: not published.
 
@@ -54,3 +58,21 @@ The plugin pins the public SDK through the canonical remote repository at
 `549ef96c8ab5dae7f5791d03a05a9726087de286`. A temporary local Go workspace was
 used during initial development. Final independent verification passed with `GOWORK=off`, including live
 upload/download and real-process E2E. No local filesystem replacement is shipped.
+
+## Installed source acceptance
+
+Remote source commit `fc968e8efd8e4ac204194c21c2c08e34e9c26e7e` was installed with
+`--build` into an isolated synthetic profile. The actual CLI/service invoked the
+installed production executable, uploaded synthetic text and committed a public
+URL as result history. Sync and telemetry were disabled; clipboard application
+was not requested.
+
+The host installer required a fix for GitHub's initial global PAX metadata entry.
+Minimum installation host: `80a0de0fd19749c8da2b0a679d7d0e5c5ffd414d`.
+The plugin's compiled SDK dependency remains pinned to `549ef96c8ab5dae7f5791d03a05a9726087de286`;
+the installer fix does not change that SDK interface.
+See the [host execution receipt](https://github.com/UniClipboard/UniClipboard/blob/80a0de0fd19749c8da2b0a679d7d0e5c5ffd414d/docs/exec/0027-wenshushu-share-action.md).
+
+The committed plugin source was independently rechecked with `GOWORK=off` in
+`.cache/acceptance/run.o6IskD/`. The live three-payload receipt remains in
+`.cache/acceptance/run.lMd5MK/`. First failure artifacts were retained.
