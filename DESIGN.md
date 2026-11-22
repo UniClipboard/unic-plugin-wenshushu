@@ -1,6 +1,6 @@
 # Wenshushu temporary-share Action design
 
-- Status: Preparation complete. The user approved text, image and file inputs and the required Action contract extensions. Runtime implementation and provider compatibility are pending. The independent repository is `UniClipboard/unic-plugin-wenshushu`.
+- Status: Implemented in the independent repository. Synthetic live provider round trips and real-plugin-process E2E passed. Host extensions are required; native UI and release packaging remain pending.
 - Date: 2026-11-22
 - Scope: One independently distributed Go Action plugin and the generic host capabilities it needs.
 - Landing targets: [Action contract](https://github.com/UniClipboard/UniClipboard/blob/bddd5223af0ae5a30f986632b2cba900774ada9e/docs/contracts/clipboard-action-contract.md), [plugin contract](https://github.com/UniClipboard/UniClipboard/blob/bddd5223af0ae5a30f986632b2cba900774ada9e/docs/contracts/plugin-contract.md), [RPC contract](https://github.com/UniClipboard/UniClipboard/blob/bddd5223af0ae5a30f986632b2cba900774ada9e/docs/contracts/plugin-rpc-contract.md), [SDK extension contract](https://github.com/UniClipboard/UniClipboard/blob/bddd5223af0ae5a30f986632b2cba900774ada9e/docs/contracts/sdk-extension-contract.md) and [Engine contract](https://github.com/UniClipboard/UniClipboard/blob/bddd5223af0ae5a30f986632b2cba900774ada9e/docs/contracts/engine-contract.md).
@@ -15,6 +15,8 @@ The user selects one history item and invokes “通过文叔叔临时分享”.
 | Image | The stored image representation with its matching media type and extension |
 | Files | The complete file selection in one provider share |
 
+The dotted `unic.wenshushu` plugin ID follows the host identity grammar; repository naming remains `unic-plugin-wenshushu`.
+
 Directory references and directory snapshots are outside this scope. Do not interpret text as a host path or fetch URLs found in text. Do not change the image encoding just to upload it. Do not silently upload a partial file selection.
 
 Only the explicit Action invokes the provider. Installing or enabling the plugin does not upload clipboard content. The Action title identifies the external service. A successful upload alone is insufficient: success requires a usable public download URL and a committed result history item.
@@ -25,7 +27,7 @@ Use the provider's supported temporary expiry. Verify the actual expiry behavior
 
 All independently distributed plugin repositories use `unic-plugin-<slug>`. This plugin uses `unic-plugin-wenshushu`. Repository owner: `UniClipboard`. Canonical repository: https://github.com/UniClipboard/unic-plugin-wenshushu.
 
-Use plugin ID `wenshushu`, Action ID `share`, and Action key `wenshushu/share`. Keep repository naming distinct from runtime plugin identity.
+Use plugin ID `unic.wenshushu`, Action ID `share`, and Action key `unic.wenshushu/share`. Keep repository naming distinct from runtime plugin identity.
 
 The independent repository owns:
 
@@ -48,7 +50,7 @@ Pin the SDK to an immutable source revision that contains the required extension
 
 Publish explicit platform artifacts with their SHA-256 digests in `spec.toml`. Use the existing installer and independent versions. The main repository keeps a documentation entry under `plugins/examples/wenshushu/`; it does not maintain a second implementation. A documentation reference requires no Git submodule and works with the installer's current no-submodule rule.
 
-## Current host constraints
+## Host constraints at the design baseline
 
 Inspection found these concrete limitations:
 
@@ -59,7 +61,7 @@ Inspection found these concrete limitations:
 
 The approved scope requires changes across these boundaries. Merely accepting more type strings cannot implement file sharing.
 
-## Proposed generic Action extension
+## Generic Action extension
 
 Retain text results and the existing `RunAction` entry. Extend declared inputs to `text`, `image` and `files`. Preserve existing text Actions and Lua resource budgets. Do not add provider-specific Engine methods.
 
@@ -67,7 +69,7 @@ Expose readable source parts through the Go Action context. Use existing content
 
 Specify reader ownership, stream admission, aggregate memory bounds, backpressure, cancellation and late reads in the SDK and RPC contracts before implementation. Permit readers only during the active invocation. Revoke them when it ends. Reuse existing stream windows and content size limits rather than buffering whole files into control frames.
 
-Define an explicit, bounded Go Action upload deadline across the Engine, RPC proxy, local service and CLI/Desktop callers. The implementation must select one coherent policy after the provider probe measures the upload path. Do not work around the deadline by returning a job placeholder or starting an untracked background upload. Ordinary local text Actions should retain a short execution bound.
+The Go Action declares `timeout_ms = 300000`. Engine and RPC use that five-minute bound. CLI adds five seconds of transport margin. Zero retains the ordinary 10-second default. Do not work around the deadline by returning a job placeholder or starting an untracked background upload. Ordinary local text Actions should retain a short execution bound.
 
 Cancellation must reach the upload request and source readers. Stopping the Engine must release readers and terminate owned process work. Verify whether caller cancellation currently cancels execution or only stops waiting; specify the intended behavior before claiming cancellation support.
 
@@ -75,7 +77,7 @@ Keep exactly-one `SetText` validation, Action origin, normal result sync policy 
 
 ## Provider integration gate
 
-No supported public upload API was established in this research. Existing public projects describe anonymous HTTP uploads and browser-driven uploads with request-signature requirements. Their existence does not prove current compatibility.
+No supported public upload API was established in this research. The implemented anonymous HTTP protocol passed a synthetic upload/download probe; it remains an observed website protocol, not an official API guarantee. Existing public projects describe anonymous HTTP uploads and browser-driven uploads with request-signature requirements. Their existence does not prove current compatibility.
 
 Before selecting a dependency or writing the provider implementation:
 
@@ -125,4 +127,4 @@ Each E2E run emits a repeatable artifact: source revisions, exact invocation, fi
 
 ## Preparation receipt
 
-This change records the approved scope, repository convention, existing constraints and implementation gates. It does not modify runtime Action behavior. The SDK changes, upload client, release artifacts and E2E execution remain pending. This repository owns subsequent plugin implementation work.
+The independent plugin and required generic host extensions are implemented. Real-process and live provider evidence is recorded in [ACCEPTANCE.md](ACCEPTANCE.md). Platform release artifacts and native Desktop acceptance remain pending.

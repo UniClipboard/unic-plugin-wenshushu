@@ -1,0 +1,14 @@
+manifest_version = 1
+id = "unic.wenshushu"
+version = "0.1.0"
+api_version = 1
+kind = "go"
+module = "github.com/UniClipboard/unic-plugin-wenshushu"
+package = "./cmd/unic-plugin-wenshushu"
+capabilities = ["action"]
+
+[[actions]]
+id = "share"
+title = "通过文叔叔临时分享"
+accepts = ["text", "image", "files"]
+timeout_ms = 300000

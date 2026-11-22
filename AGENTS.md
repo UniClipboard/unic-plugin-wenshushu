@@ -26,5 +26,5 @@ here. Generic UniClipboard Engine, plugin SDK, RPC and host changes belong in
 ## Identity
 
 Repository naming: `unic-plugin-<slug>`.
-Plugin ID: `wenshushu`. Action ID: `share`. Action key: `wenshushu/share`.
+Plugin ID: `unic.wenshushu`. Action ID: `share`. Action key: `unic.wenshushu/share`.
 The approved input scope is text, images and files. Directory inputs are excluded.

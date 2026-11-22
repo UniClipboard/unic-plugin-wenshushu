@@ -1,9 +1,12 @@
 /bin/
 /dist/
-/.cache/
+.cache/
 /.planning/
 .env
 .env.*
 !.env.example
 *.log
 .DS_Store
+
+/go.work
+/go.work.sum
