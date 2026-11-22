@@ -55,7 +55,7 @@ are not covered by this receipt.
 ## Dependency identity
 
 The plugin pins the public SDK through the canonical remote repository at
-`e2ba3304f57d3687ef193b9511c3eb2f98afd671`. A temporary local Go workspace was
+`7510a9248679b2f5ccd16df3895a525924d4b9cf`. A temporary local Go workspace was
 used during initial development. Final independent verification passed with `GOWORK=off`, including live
 upload/download and real-process E2E. No local filesystem replacement is shipped.
 
@@ -80,13 +80,13 @@ The committed plugin source was independently rechecked with `GOWORK=off` in
 ## Reviewed SDK adoption
 
 The current SDK and minimum host revision is
-`e2ba3304f57d3687ef193b9511c3eb2f98afd671`. It includes approved per-part
-`action.close_part` release, connection-wide source-descriptor registration,
+`7510a9248679b2f5ccd16df3895a525924d4b9cf`. It includes approved per-part
+`action.close_part` release, bounded out-of-order descriptor registration with retired-ID replay rejection,
 source-failure latching and stable timeout mapping. No local override is used.
-The downloaded SDK's five critical source files were compared byte for byte
+The downloaded SDK's six critical source files were compared byte for byte
 with that host revision before adoption.
 
 `GOWORK=off sh scripts/verify.sh` passed after the dependency update and emitted
-`.cache/acceptance/run.t51uq2/`. This follow-up ran deterministic provider and
+`.cache/acceptance/run.m6Bfuq/`. This follow-up ran deterministic provider and
 real-plugin-process E2E; it did not upload additional content to the live provider.
 The earlier live-provider receipt remains the evidence for provider compatibility.

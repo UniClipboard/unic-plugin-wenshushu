@@ -1,7 +1,7 @@
 filippo.io/edwards25519 v1.2.0 h1:crnVqOiS4jqYleHd9vaKZ+HKtHfllngJIiOpNpoJsjo=
 filippo.io/edwards25519 v1.2.0/go.mod h1:xzAOLCNug/yB62zG1bQ8uziwrIqIuxhctzJT18Q77mc=
-github.com/UniClipboard/UniClipboard v0.0.0-20261122021524-e2ba3304f57d h1:hogVHlxQ3HyHrkUdoj12Nd9LScoMw6h3BTG/qz76U2g=
-github.com/UniClipboard/UniClipboard v0.0.0-20261122021524-e2ba3304f57d/go.mod h1:Mh8kQwwSsVHTdKgP4Ie5d6TA+hcj2dPWOx6/mCZc8aY=
+github.com/UniClipboard/UniClipboard v0.0.0-20261122022757-7510a9248679 h1:w63upk45gmbgigZdD8QIa3yFsdaKnfpMNDe0OwqSV4w=
+github.com/UniClipboard/UniClipboard v0.0.0-20261122022757-7510a9248679/go.mod h1:Mh8kQwwSsVHTdKgP4Ie5d6TA+hcj2dPWOx6/mCZc8aY=
 github.com/akutz/memconn v0.1.0 h1:NawI0TORU4hcOMsMr11g7vwlCdkYeLKXBcxWu2W/P8A=
 github.com/akutz/memconn v0.1.0/go.mod h1:Jo8rI7m0NieZyLI5e2CDlRdRqRRB4S7Xp77ukDjH+Fw=
 github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be h1:9AeTilPcZAjCFIImctFaOjnTIavg87rW78vTPkQqLI8=

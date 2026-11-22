@@ -4,7 +4,7 @@ go 1.27.3
 
 require (
 	github.com/mr-tron/base58 v1.2.0
-	github.com/uniclipboard/unic v0.0.0-20261122021524-e2ba3304f57d
+	github.com/uniclipboard/unic v0.0.0-20261122022757-7510a9248679
 )
 
 require (
@@ -22,4 +22,4 @@ require (
 	modernc.org/sqlite v1.61.1 // indirect
 )
 
-replace github.com/uniclipboard/unic => github.com/UniClipboard/UniClipboard v0.0.0-20261122021524-e2ba3304f57d
+replace github.com/uniclipboard/unic => github.com/UniClipboard/UniClipboard v0.0.0-20261122022757-7510a9248679
