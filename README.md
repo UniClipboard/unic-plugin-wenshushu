@@ -39,15 +39,14 @@ unic h action @1 unic.wenshushu/share --apply
 ```
 
 The optional `--apply` copies the result through the host's clipboard adapter.
-The plugin never writes the clipboard directly. There are no prebuilt release
-artifacts yet, so installation currently requires a compatible Go toolchain.
+The plugin never writes the clipboard directly. Release assets provide prebuilt binaries for macOS, Linux and Windows.
 
 ## Identity and limits
 
 - Repository: `UniClipboard/unic-plugin-wenshushu`
 - Plugin ID: `unic.wenshushu`
 - Action key: `unic.wenshushu/share`
-- Version: `0.1.0`
+- Version: `0.1.2`
 - Action deadline: five minutes
 - Upload buffering: at most 2 MiB per sequential file chunk
 - Selection bound: 500 files and 5 GiB total, subject to lower host/provider limits

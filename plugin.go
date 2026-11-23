@@ -12,7 +12,7 @@ import (
 )
 
 const ID = "unic.wenshushu"
-const Version = "0.1.1"
+const Version = "0.1.2"
 
 // Plugin owns provider requests. The host owns content and result history.
 type Plugin struct{ client *wenshushu.Client }

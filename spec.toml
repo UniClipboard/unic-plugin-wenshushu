@@ -1,6 +1,7 @@
 manifest_version = 1
 id = "unic.wenshushu"
-version = "0.1.1"
+version = "0.1.2"
+icon = "link"
 api_version = 1
 kind = "go"
 module = "github.com/UniClipboard/unic-plugin-wenshushu"
@@ -18,47 +19,47 @@ timeout_ms = 300000
 [[artifacts]]
 goos = "darwin"
 goarch = "arm64"
-release = "v0.1.1"
+release = "v0.1.2"
 asset = "unic-plugin-wenshushu_darwin_arm64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "c2dfccdd8286b5f7f1f0095048e7ad30983178a41a5bf5cd204265b449285da9"
+sha256 = "2ca9b731aa1097badf1dc48fc476af0012dd5545e1493f37bbd10bc362443a1e"
 
 [[artifacts]]
 goos = "darwin"
 goarch = "amd64"
-release = "v0.1.1"
+release = "v0.1.2"
 asset = "unic-plugin-wenshushu_darwin_amd64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "8d02fc5057edc5f40e16b0d0a472443f153f913a4bcb4e2d346dae56881081fb"
+sha256 = "a845fdbc12011f3fdac62249b541aeefb231017f3fb96239a638101156272f8e"
 
 [[artifacts]]
 goos = "linux"
 goarch = "amd64"
-release = "v0.1.1"
+release = "v0.1.2"
 asset = "unic-plugin-wenshushu_linux_amd64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "35f67888a7c0e45c1e8763e1ba6b39ffa497fc9be07ea509c356cc5de8c4f0b4"
+sha256 = "95c186b745bd9b627a2e68fac715698f497dc1fbe954261e88d95f42bf33025a"
 
 [[artifacts]]
 goos = "linux"
 goarch = "arm64"
-release = "v0.1.1"
+release = "v0.1.2"
 asset = "unic-plugin-wenshushu_linux_arm64.tar.gz"
 executable = "unic-plugin-wenshushu"
-sha256 = "54ca2c18f48435c643bf151d18bc571d72621e46e0988010d515970a9ceb66b9"
+sha256 = "1107ade6b33e8dd73d0c9454a65bc5b36c501c2f3a10d83ebd235bfd0a49a5b6"
 
 [[artifacts]]
 goos = "windows"
 goarch = "amd64"
-release = "v0.1.1"
+release = "v0.1.2"
 asset = "unic-plugin-wenshushu_windows_amd64.tar.gz"
 executable = "unic-plugin-wenshushu.exe"
-sha256 = "5ac72136d23729eca2595a50ed281a17bb3b35fbe912676a51f15a0357186ebf"
+sha256 = "a9a516091e33caa5fe80fa674affc3867bf46490292d88cb76a267bf41c98f5a"
 
 [[artifacts]]
 goos = "windows"
 goarch = "arm64"
-release = "v0.1.1"
+release = "v0.1.2"
 asset = "unic-plugin-wenshushu_windows_arm64.tar.gz"
 executable = "unic-plugin-wenshushu.exe"
-sha256 = "109e45372098aac93bd1e1ccdde08024c7a6468618c5fb3c722290c70a87fa51"
+sha256 = "c6060729cfd254a5700f8bba2820ca13bbf8fb9df6f3cc4902f095e8b180d05e"
